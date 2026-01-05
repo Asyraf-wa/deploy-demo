@@ -3,7 +3,7 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - main # Atau 'master' mengikut nama branch utama anda
+      - main
 
 jobs:
   web-deploy:
@@ -19,6 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Kerana FTP anda sudah terus ke folder yang betul,
-          # kita biarkan server-dir kosong atau gunakan ./
           server-dir: ./
+          # Tambah konfigurasi di bawah untuk mengelakkan timeout
+          protocol: ftp
+          port: 21
