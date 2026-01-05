@@ -20,6 +20,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./
-          # Tambah konfigurasi di bawah untuk mengelakkan timeout
-          protocol: ftp
+          # Gunakan FTPS dan abaikan sijil SSL jika perlu
+          protocol: ftps
           port: 21
+          # Menambah timeout yang lebih lama
+          timeout: 60000
